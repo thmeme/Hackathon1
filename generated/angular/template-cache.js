@@ -46,17 +46,74 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        <!-- /.container -->\n" +
     "    </nav>\n" +
     "    <header>\n" +
-    "        <div class=\"header-background\">\n" +
-    "            <div class=\"row top-menu\">\n" +
-    "                <div class=\"col-xs-4 col-xs-offset-1 col-md-4 col-md-offset-2 text-left logo_font\"><img class=\"logo\" src=\"img/logo2.png\" alt=\"\">Webcamolidays</div>\n" +
-    "                <div class=\"col-md-4 text-right\"><span class=\"language\">English</span><span class=\"glyphicon glyphicon-shopping-cart icon-cart\" aria-hidden=\"true\"></span>\n" +
-    "                    <button class=\"btn btn-default login_button\" type=\"submit\">Se connecter</button></div>\n" +
-    "            </div>\n" +
+    "      <div class=\"row top-menu\">\n" +
+    "        <div class=\"col-lg-8 col-md-offset-2\"><img class=\"logo animated flip\" src=\"../img/logo2.png\" alt=\"\"><h1>Webcamolidays</h1></div>\n" +
+    "      </div>\n" +
     "\n" +
-    "        </div>\n" +
-    "        <!-- End header-background -->\n" +
-    "    </header>\n" +
-    "</div>\n"
+    "      <div class=\"row top-menu\">\n" +
+    "        <div class=\"col-lg-8 col-md-offset-2\"><span class=\"glyphicon glyphicon-menu-down chevron animated infinite bounce\" aria-hidden=\"true\"></span></div>\n" +
+    "      </div>\n" +
+    "      <div class=\"row top-menu\">\n" +
+    "        <div class=\"col-lg-8 col-md-offset-2\"><p>Partir en vacances</p></div>\n" +
+    "      </div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<section>test</section>\n" +
+    "<!-- End header-background -->\n" +
+    "</header>\n"
   );
 
   $templateCache.put("anon/login.html",
