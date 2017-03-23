@@ -1,7 +1,62 @@
 angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("anon/home.html",
-    "<h1>Hello World</h1>"
+    "<div class=\"container-hero\">\n" +
+    "    <!--nav-->\n" +
+    "    <nav id=\"menu\" class=\"navbar navbar-default navbar-fixed-top\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <!-- Brand and toggle get grouped for better mobile display -->\n" +
+    "            <div class=\"navbar-header\">\n" +
+    "                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
+    "          <span class=\"glyphicon glyphicon-shopping-cart\" aria-hidden=\"true\" style=\"color:#D70F64\"></span>\n" +
+    "        </button>\n" +
+    "                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
+    "          <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\" style=\"color:#D70F64\"></span>\n" +
+    "        </button>\n" +
+    "                <a class=\"navbar-brand logo_navbar\" href=\"\"><img class=\"logo_navbar\" src=\"img/logo_nourristoi.png\" alt=\"\"></a>\n" +
+    "            </div>\n" +
+    "\n" +
+    "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
+    "            <div class=\"collapse navbar-collapse\">\n" +
+    "                <ul class=\"nav navbar-nav navbar-right\">\n" +
+    "                    <li class=\"dropdown\">\n" +
+    "                        <a href=\"#\" class=\"dropdown-toggle\" style=\"color:#D70F64\">Se connecter</a>\n" +
+    "                        <ul class=\"dropdown-menu\">\n" +
+    "                        </ul>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "\n" +
+    "                <ul class=\"nav navbar-nav navbar-right\">\n" +
+    "                    <li class=\"dropdown\">\n" +
+    "                        <a href=\"#\" class=\"dropdown-toggle\"><span class=\"glyphicon glyphicon-shopping-cart icon-cart\" aria-hidden=\"true\" style=\"color:#D70F64\"></span></a>\n" +
+    "                        <ul class=\"dropdown-menu\">\n" +
+    "                        </ul>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "\n" +
+    "                <ul class=\"nav navbar-nav navbar-right\">\n" +
+    "                    <li class=\"dropdown\">\n" +
+    "                        <a href=\"#\" class=\"dropdown-toggle\" style=\"color:#D70F64\">English</a>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "\n" +
+    "            </div>\n" +
+    "            <!-- /.navbar-collapse -->\n" +
+    "        </div>\n" +
+    "        <!-- /.container -->\n" +
+    "    </nav>\n" +
+    "    <header>\n" +
+    "        <div class=\"header-background\">\n" +
+    "            <div class=\"row top-menu\">\n" +
+    "                <div class=\"col-xs-4 col-xs-offset-1 col-md-4 col-md-offset-2 text-left logo_font\"><img class=\"logo\" src=\"img/logo2.png\" alt=\"\">Webcamolidays</div>\n" +
+    "                <div class=\"col-md-4 text-right\"><span class=\"language\">English</span><span class=\"glyphicon glyphicon-shopping-cart icon-cart\" aria-hidden=\"true\"></span>\n" +
+    "                    <button class=\"btn btn-default login_button\" type=\"submit\">Se connecter</button></div>\n" +
+    "            </div>\n" +
+    "\n" +
+    "        </div>\n" +
+    "        <!-- End header-background -->\n" +
+    "    </header>\n" +
+    "</div>\n"
   );
 
   $templateCache.put("anon/login.html",
@@ -24,33 +79,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
   );
 
   $templateCache.put("anon/navbar.html",
-    "<nav class=\"navbar navbar-default\" role=\"navigation\" ng-controller=\"NavbarController\">\n" +
-    "    <div class=\"container-fluid\">\n" +
-    "        <div class=\"navbar-header\">\n" +
-    "            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar\">\n" +
-    "        <span class=\"sr-only\">Toggle navigation</span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "        <span class=\"icon-bar\"></span>\n" +
-    "      </button>\n" +
-    "            <a class=\"navbar-brand\" href=\"#\"></a>\n" +
-    "        </div>\n" +
-    "        <div class=\"collapse navbar-collapse\" id=\"navbar\">\n" +
-    "            <ul class=\"nav navbar-nav\">\n" +
-    "                <li ui-sref-active=\"active\"><a ui-sref=\"anon.home\">Home</a></li>\n" +
-    "\n" +
-    "            </ul>\n" +
-    "            <ul class=\"nav navbar-nav navbar-right\">\n" +
-    "                <li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"anon.login\" ng-hide=\"auth.isAuthenticated()\">Login</a></li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"anon.register\" ng-hide=\"auth.isAuthenticated()\">Register</a></li>\n" +
-    "                    <li ui-sref-active=\"active\"><a ui-sref=\"user.dashboard\" ng-show=\"auth.isAuthenticated()\">Dashboard</a></li>\n" +
-    "                    <li><a ng-click=\"logout()\" ng-show=\"auth.isAuthenticated()\" href='#'>Logout</a></li>\n" +
-    "                </li>\n" +
-    "            </ul>\n" +
-    "        </div>\n" +
-    "    </div>\n" +
-    "</nav>\n"
+    ""
   );
 
   $templateCache.put("anon/register.html",

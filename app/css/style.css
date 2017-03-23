@@ -1,0 +1,357 @@
+body {
+    font-family: 'Muli', sans-serif;
+}
+
+.container-hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 40vw;
+    background-image: url('../img/header.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
+}
+
+.logo_font {
+  font-family: Altair;
+  font-style: Italic;
+  font-size: 34px;
+}
+
+header {
+    margin-bottom: 100px;
+}
+
+.top-menu {
+    width: 100%;
+    font-size: 16px;
+}
+
+.icon-cart {
+    color: white;
+    font-size: 25px;
+    vertical-align: middle;
+    margin-right: 35px;
+}
+
+.language {
+    margin-right: 35px;
+    color: white;
+}
+
+.search {
+    padding-top: 140px;
+    color: white;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 30px;
+}
+
+.header-choices {
+    width: 100%;
+}
+
+.cta-header {
+    background: #D70F64;
+    border: #D70F64;
+    color: white;
+    text-transform: uppercase;
+}
+
+.cta-header:hover {
+    color: #fff;
+    background: #BF165B;
+}
+
+.stores img {
+    margin-top: 55vh;
+    width: 10%;
+}
+
+
+/*middle-content*/
+
+.middle-content {
+    text-align: center;
+    padding-top: 1vh;
+}
+
+h2 {
+    font-size: 30px;
+    color: #D70F64;
+    padding-top: 25vh;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 39px;
+    margin-bottom: 50px;
+}
+
+.restoselection img {
+    width: 15%;
+    margin-top: 35px;
+}
+
+.cityselection img {
+    width: 80%;
+    margin-top: 22px;
+}
+
+.restoselection img {
+    margin: 0;
+}
+
+.cityselection {
+    margin: 0;
+}
+
+
+/*phone*/
+
+.img_phone {
+    width: 50%;
+}
+
+.icone_store {
+    padding-top: 10%;
+}
+
+.icone_store_black {
+    width: 80%;
+    margin-bottom: 10%;
+}
+
+p {
+    color: black;
+    font-size: 1em;
+}
+
+.commencez {
+    width: 50%;
+}
+
+.avantgarde-background {
+    background-image: url(img/plats.jpg);
+    margin-left: 0;
+    margin-right: 0;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    min-height: 40vw;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/*footer*/
+
+h4 {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.cgu li {
+  display: inline;
+  padding: 4px;
+}
+
+.cgu a {
+  color: black;
+}
+
+.cgu a:hover {
+  text-decoration: none;
+  color: #D70F64;
+}
+
+.cities a {
+  color: black;
+  text-align: right;
+}
+.cities a:hover {
+  text-decoration: none;
+  color: #D70F64;
+
+}
+.paris-deliveries li {
+  display: inline;
+}
+
+.paris-deliveries a {
+  color : black;
+}
+
+.paris-deliveries a:hover {
+  text-decoration: none;
+  color: #D70F64;
+}
+
+.lyon-deliveries li {
+  display: inline;
+}
+
+.lyon-deliveries a {
+  color: black;
+}
+
+.lyon-deliveries a:hover {
+  text-decoration: none;
+  color:  #D70F64;
+}
+
+.bordeaux-deliveries li {
+  display: inline;
+}
+
+.bordeaux-deliveries a {
+  color: black;
+}
+
+.bordeaux-deliveries a:hover {
+  text-decoration: none;
+  color:  #D70F64;
+}
+
+.cities-again a {
+  color: black;
+  text-align: right;
+}
+.cities-again a:hover {
+  text-decoration: none;
+  color: #D70F64;
+}
+
+.lilles-deliveries li {
+  display: inline;
+}
+
+.lilles-deliveries a {
+  color: black;
+}
+ .lilles-deliveries a:hover {
+   text-decoration: none;
+     color:  #D70F64;
+ }
+
+ .nantes-deliveries li {
+   display: none;
+ }
+
+ .nantes-deliveries a {
+   color: black;
+ }
+
+.nantes-deliveries a:hover {
+  text-decoration: none;
+  color:  #D70F64;
+}
+
+.paragraphe_footer a {
+  color: #666;
+}
+
+.paragraphe_footer a:hover {
+  color: #D70F64;
+  text-decoration: none;
+}
+
+.h4_footer a {
+  color: #666;
+}
+
+.h4_footer a:hover {
+  color: #D70F64;
+  text-decoration: none;
+}
+
+.url {
+  padding-top: 40px;
+}
+
+.reseaux_sociaux {
+  width: 6%;
+  height: 6%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.nourristoi_logo_gris {
+  width: 30%;
+  height: 30%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.paris {
+  background-image: url('img/city-1.jpg');
+  min-width: 30px;
+  background-size: cover;
+}
+
+.login_button {
+  background: none;
+  border-radius: 0;
+  color: white;
+}
+
+.login_button:hover {
+  background: none;
+  border-radius: 0;
+  color: white;
+}
+
+@media screen and (max-width: 991px) {
+  .logo_font {
+    font-family: Altair;
+    font-style: Italic;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .logo_font {
+    font-family: Altair;
+    font-style: Italic;
+    font-size: 18px;
+  }
+}
+
+nav#menu {
+    display: none;
+}
+
+nav#menu.shrink {
+    display: block;
+}
+
+.collapse.navbar-collapse {
+  padding-right: 10%;
+}
+
+.logo_navbar {
+    width: 158px;
+    height: 44px;
+    padding-top: 5px;
+}
+
+.hover-paris a:hover {
+  background-image: url('img/city-1-hover');
+}
