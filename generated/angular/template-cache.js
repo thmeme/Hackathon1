@@ -1,7 +1,23 @@
 angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("anon/home.html",
-    "<h1>Hello World</h1>"
+    "\n" +
+    "\n" +
+    "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\" on-dragend=\"console.log('coucou')\">\n" +
+    "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
+    "            id=\"custom-marker-{{$index}}\"\n" +
+    "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
+    "\n" +
+    "          </marker>\n" +
+    "\n" +
+    "\n" +
+    "    </ng-map>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div ng-model=\"resCarte\" class=\"\">\n" +
+    "\n" +
+    "</div>\n"
   );
 
   $templateCache.put("anon/login.html",
