@@ -78,25 +78,24 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
-            <div id="map"></div>
-            <script>
-                function initMap() {
-                    var uluru = {
-                        lat: -25.363,
-                        lng: 131.044
-                    };
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 4,
-                        center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                        position: uluru,
-                        map: map
-                    });
-                }
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap">
-            </script>
+            <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY">
+    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style="height: 90%; width: 70%">
+      <marker ng-repeat="p in listpoint track by $index"
+            id="custom-marker-{{p.id}}" on-click="affichage(p)"
+            position="[{{p.location.latitude}}, {{p.location.longitude}}]">
+          </marker>
+
+    </ng-map>
+
+</div>
+
+<div>
+<p>{{info.location.city}}</p>
+   <script async type="text/javascript" src="http://api.lookr.com/embed/script/timelapse.js"></script>
+   <iframe ng-src="{{mapUrl}}" width="100%" height="" frameborder="0"></iframe>
+
+
+</div>
         </div>
         <div class="col-lg-5">
             <h3>Profitez de la vue !</h3></div>

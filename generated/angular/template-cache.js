@@ -81,25 +81,24 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                <!-- /.col-lg-6 -->\n" +
     "            </div>\n" +
     "            <!-- /.row -->\n" +
-    "            <div id=\"map\"></div>\n" +
-    "            <script>\n" +
-    "                function initMap() {\n" +
-    "                    var uluru = {\n" +
-    "                        lat: -25.363,\n" +
-    "                        lng: 131.044\n" +
-    "                    };\n" +
-    "                    var map = new google.maps.Map(document.getElementById('map'), {\n" +
-    "                        zoom: 4,\n" +
-    "                        center: uluru\n" +
-    "                    });\n" +
-    "                    var marker = new google.maps.Marker({\n" +
-    "                        position: uluru,\n" +
-    "                        map: map\n" +
-    "                    });\n" +
-    "                }\n" +
-    "            </script>\n" +
-    "            <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap\">\n" +
-    "            </script>\n" +
+    "            <div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\">\n" +
+    "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
+    "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
+    "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
+    "          </marker>\n" +
+    "\n" +
+    "    </ng-map>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<div>\n" +
+    "<p>{{info.location.city}}</p>\n" +
+    "   <script async type=\"text/javascript\" src=\"http://api.lookr.com/embed/script/timelapse.js\"></script>\n" +
+    "   <iframe ng-src=\"{{mapUrl}}\" width=\"100%\" height=\"\" frameborder=\"0\"></iframe>\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
     "        </div>\n" +
     "        <div class=\"col-lg-5\">\n" +
     "            <h3>Profitez de la vue !</h3></div>\n" +

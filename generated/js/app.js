@@ -58413,9 +58413,41 @@ angular.module('app')
     });
 
 angular.module('app')
-    .controller('MainController', function($scope) {
-      /* Here is your main controller */
+    .controller('MainController', function($scope, $http, NgMap, $sce) {
+        /* He$re is your main controller */
+
+
+        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse';
+        NgMap.getMap().then(function(map) {
+            console.log(map.getBounds());
+            var info = map.getBounds();
+            var latne = (info.f.b).toFixed(3);
+            var lngne = (info.f.f).toFixed(3);
+            var latsw = (info.b.b).toFixed(3);
+            var lngsw = (info.b.f).toFixed(3);
+            console.log(latne);
+            console.log(lngne);
+            console.log(latsw);
+            console.log(lngsw);
+
+            $scope.listpoint = [];
+            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse`).then(function(res) {
+                $scope.listpoint = res.data.result.webcams;
+                console.log($scope.listpoint[0]);
+
+            });
+
+            $scope.affichage = function(event, p) {
+                console.log(p);
+                $scope.info = p;
+                $scope.mapUrl = $sce.trustAsResourceUrl('http://api.lookr.com/embed/timelapse/' +p.id +'/day');
+            };
+        });
+
     });
+// https://webcamstravel.p.mashape.com/webcams/map/63.083,28.011,-37.833,39.861,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK
+// https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
+// https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
 
 angular.module('app')
     .controller('NavbarController', function($scope, Auth, CurrentUser) {
@@ -58602,25 +58634,24 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                <!-- /.col-lg-6 -->\n" +
     "            </div>\n" +
     "            <!-- /.row -->\n" +
-    "            <div id=\"map\"></div>\n" +
-    "            <script>\n" +
-    "                function initMap() {\n" +
-    "                    var uluru = {\n" +
-    "                        lat: -25.363,\n" +
-    "                        lng: 131.044\n" +
-    "                    };\n" +
-    "                    var map = new google.maps.Map(document.getElementById('map'), {\n" +
-    "                        zoom: 4,\n" +
-    "                        center: uluru\n" +
-    "                    });\n" +
-    "                    var marker = new google.maps.Marker({\n" +
-    "                        position: uluru,\n" +
-    "                        map: map\n" +
-    "                    });\n" +
-    "                }\n" +
-    "            </script>\n" +
-    "            <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap\">\n" +
-    "            </script>\n" +
+    "            <div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\">\n" +
+    "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
+    "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
+    "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
+    "          </marker>\n" +
+    "\n" +
+    "    </ng-map>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<div>\n" +
+    "<p>{{info.location.city}}</p>\n" +
+    "   <script async type=\"text/javascript\" src=\"http://api.lookr.com/embed/script/timelapse.js\"></script>\n" +
+    "   <iframe ng-src=\"{{mapUrl}}\" width=\"100%\" height=\"\" frameborder=\"0\"></iframe>\n" +
+    "\n" +
+    "\n" +
+    "</div>\n" +
     "        </div>\n" +
     "        <div class=\"col-lg-5\">\n" +
     "            <h3>Profitez de la vue !</h3></div>\n" +
