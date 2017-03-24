@@ -58580,56 +58580,52 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "<!-- End header-background -->\n" +
     "<div class=\"container-hero2\" id=\"scroll\">\n" +
-    "<div class=\"row top-menu\">\n" +
-    "    <div class=\"col-lg-5 col-lg-offset-1\">\n" +
-    "        <style>\n" +
-    "            #map {\n" +
-    "                height: 400px;\n" +
-    "                width: 100%;\n" +
-    "            }\n" +
-    "        </style>\n" +
-    "        <h3>Choisissez votre destination</h3>\n" +
-    "        <div class=\"row\">\n" +
-    "            <div class=\"col-lg-12\">\n" +
-    "                <div class=\"input-group input-field\">\n" +
-    "                    <input type=\"text\" class=\"form-control\" placeholder=\"Je décide de partir à...\">\n" +
-    "                    <span class=\"input-group-btn\">\n" +
+    "    <div class=\"row top-menu\">\n" +
+    "        <div class=\"col-lg-5 col-lg-offset-1\">\n" +
+    "            <style>\n" +
+    "                #map {\n" +
+    "                    height: 400px;\n" +
+    "                    width: 100%;\n" +
+    "                }\n" +
+    "            </style>\n" +
+    "            <h3>Choisissez votre destination</h3>\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-lg-12\">\n" +
+    "                    <div class=\"input-group input-field\">\n" +
+    "                        <input type=\"text\" class=\"form-control\" placeholder=\"Je décide de partir à...\">\n" +
+    "                        <span class=\"input-group-btn\">\n" +
     "          <button class=\"btn btn-default\" type=\"button\">Go!</button>\n" +
     "        </span>\n" +
+    "                    </div>\n" +
+    "                    <!-- /input-group -->\n" +
     "                </div>\n" +
-    "                <!-- /input-group -->\n" +
+    "                <!-- /.col-lg-6 -->\n" +
     "            </div>\n" +
-    "            <!-- /.col-lg-6 -->\n" +
+    "            <!-- /.row -->\n" +
+    "            <div id=\"map\"></div>\n" +
+    "            <script>\n" +
+    "                function initMap() {\n" +
+    "                    var uluru = {\n" +
+    "                        lat: -25.363,\n" +
+    "                        lng: 131.044\n" +
+    "                    };\n" +
+    "                    var map = new google.maps.Map(document.getElementById('map'), {\n" +
+    "                        zoom: 4,\n" +
+    "                        center: uluru\n" +
+    "                    });\n" +
+    "                    var marker = new google.maps.Marker({\n" +
+    "                        position: uluru,\n" +
+    "                        map: map\n" +
+    "                    });\n" +
+    "                }\n" +
+    "            </script>\n" +
+    "            <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap\">\n" +
+    "            </script>\n" +
     "        </div>\n" +
-    "        <!-- /.row -->\n" +
-    "        <div id=\"map\"></div>\n" +
-    "        <script>\n" +
-    "            function initMap() {\n" +
-    "                var uluru = {\n" +
-    "                    lat: -25.363,\n" +
-    "                    lng: 131.044\n" +
-    "                };\n" +
-    "                var map = new google.maps.Map(document.getElementById('map'), {\n" +
-    "                    zoom: 4,\n" +
-    "                    center: uluru\n" +
-    "                });\n" +
-    "                var marker = new google.maps.Marker({\n" +
-    "                    position: uluru,\n" +
-    "                    map: map\n" +
-    "                });\n" +
-    "            }\n" +
-    "        </script>\n" +
-    "        <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap\">\n" +
-    "        </script>\n" +
+    "        <div class=\"col-lg-5\">\n" +
+    "            <h3>Profitez de la vue !</h3></div>\n" +
     "    </div>\n" +
-    "    <div class=\"col-lg-5\">\n" +
-    "        <h3>Profitez de la vue !</h3></div>\n" +
-    "</div></div>\n" +
-    "<div class=\"row top-menu footer\">\n" +
-    "    <div class=\"col-lg-5 col-lg-offset-1\">\n" +
-    "      <p>bla</p>\n" +
-    "    </div>\n" +
-    "  </div>\n"
+    "</div>\n"
   );
 
   $templateCache.put("anon/login.html",
