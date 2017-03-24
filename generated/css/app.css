@@ -10683,6 +10683,10 @@ button.close {
   }
 }
 
+::-webkit-scrollbar {
+display: none;
+}
+
 .container-hero {
     width: 100%;
     height: 100vh;

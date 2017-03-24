@@ -52,13 +52,13 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        </div>\n" +
     "\n" +
     "        <div class=\"row top-menu menu-down-link\">\n" +
-    "            <div class=\"col-lg-8 col-md-offset-2\"><a href=\"http://localhost:8000/#!/#scroll\"><span class=\"glyphicon glyphicon-menu-down menu-down animated infinite bounce\" aria-hidden=\"true\"></span></a></div>\n" +
+    "            <div class=\"col-lg-8 col-md-offset-2\"><a data-scroll href=\"#scroll\"><span class=\"glyphicon glyphicon-menu-down menu-down animated infinite bounce\" aria-hidden=\"true\"></span></a></div>\n" +
     "        </div>\n" +
     "</div>\n" +
     "</header>\n" +
     "\n" +
     "<!-- End header-background -->\n" +
-    "<div class=\"container-hero2\">\n" +
+    "<div class=\"container-hero2\" id=\"scroll\">\n" +
     "<div class=\"row top-menu\">\n" +
     "    <div class=\"col-lg-5 col-lg-offset-1\">\n" +
     "        <style>\n" +
@@ -67,7 +67,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                width: 100%;\n" +
     "            }\n" +
     "        </style>\n" +
-    "        <h3 id=\"scroll\">Choisissez votre destination</h3>\n" +
+    "        <h3>Choisissez votre destination</h3>\n" +
     "        <div class=\"row\">\n" +
     "            <div class=\"col-lg-12\">\n" +
     "                <div class=\"input-group input-field\">\n" +
