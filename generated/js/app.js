@@ -57859,7 +57859,7 @@ angular.module('app')
         /* He$re is your main controller */
 
 
-        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location';
+        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse';
         NgMap.getMap().then(function(map) {
             console.log(map.getBounds());
             var info = map.getBounds();
@@ -57873,15 +57873,19 @@ angular.module('app')
             console.log(lngsw);
 
             $scope.listpoint = [];
-            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/+${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location`).then(function(res) {
-
+            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location`).then(function(res) {
                 $scope.listpoint = res.data.result.webcams;
                 console.log($scope.listpoint[0]);
-              });
-
 
             });
+
+            $scope.affichage = function(event, p) {
+                console.log(p);
+                $scope.info = p;
+            };
         });
+
+    });
 // https://webcamstravel.p.mashape.com/webcams/map/63.083,28.011,-37.833,39.861,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK
 // https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
 // https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
@@ -57996,7 +58000,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
     "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\" on-dragend=\"console.log('coucou')\">\n" +
     "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
-    "            id=\"custom-marker-{{$index}}\"\n" +
+    "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
     "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
     "\n" +
     "          </marker>\n" +
@@ -58005,8 +58009,9 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    </ng-map>\n" +
     "</div>\n" +
     "\n" +
-    "<div ng-model=\"resCarte\" class=\"\">\n" +
-    "\n" +
+    "<div>\n" +
+    "<p>{{info.location.city}}</p>\n" +
+    "<p><iframe>{{info.url.edit}}</frame></p>\n" +
     "</div>\n"
   );
 

@@ -6,7 +6,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
     "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\" on-dragend=\"console.log('coucou')\">\n" +
     "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
-    "            id=\"custom-marker-{{$index}}\"\n" +
+    "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
     "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
     "\n" +
     "          </marker>\n" +
@@ -15,8 +15,9 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "    </ng-map>\n" +
     "</div>\n" +
     "\n" +
-    "<div ng-model=\"resCarte\" class=\"\">\n" +
-    "\n" +
+    "<div>\n" +
+    "<p>{{info.location.city}}</p>\n" +
+    "<p><iframe>{{info.url.edit}}</frame></p>\n" +
     "</div>\n"
   );
 

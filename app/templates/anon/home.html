@@ -3,7 +3,7 @@
 <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY">
     <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style="height: 90%; width: 70%" on-dragend="console.log('coucou')">
       <marker ng-repeat="p in listpoint track by $index"
-            id="custom-marker-{{$index}}"
+            id="custom-marker-{{p.id}}" on-click="affichage(p)"
             position="[{{p.location.latitude}}, {{p.location.longitude}}]">
 
           </marker>
@@ -12,6 +12,7 @@
     </ng-map>
 </div>
 
-<div ng-model="resCarte" class="">
-
+<div>
+<p>{{info.location.city}}</p>
+<p><iframe>{{info.url.edit}}</frame></p>
 </div>

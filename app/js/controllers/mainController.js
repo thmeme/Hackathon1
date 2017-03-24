@@ -3,7 +3,7 @@ angular.module('app')
         /* He$re is your main controller */
 
 
-        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location';
+        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse';
         NgMap.getMap().then(function(map) {
             console.log(map.getBounds());
             var info = map.getBounds();
@@ -17,15 +17,19 @@ angular.module('app')
             console.log(lngsw);
 
             $scope.listpoint = [];
-            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/+${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location`).then(function(res) {
-
+            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location`).then(function(res) {
                 $scope.listpoint = res.data.result.webcams;
                 console.log($scope.listpoint[0]);
-              });
-
 
             });
+
+            $scope.affichage = function(event, p) {
+                console.log(p);
+                $scope.info = p;
+            };
         });
+
+    });
 // https://webcamstravel.p.mashape.com/webcams/map/63.083,28.011,-37.833,39.861,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK
 // https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
 // https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
