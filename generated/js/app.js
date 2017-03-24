@@ -57703,7 +57703,10 @@ angular.module('ui.bootstrap.datepickerPopup').run(function() {!angular.$$csp().
 angular.module('ui.bootstrap.tooltip').run(function() {!angular.$$csp().noInlineStyle && !angular.$$uibTooltipCss && angular.element(document).find('head').prepend('<style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style>'); angular.$$uibTooltipCss = true; });
 angular.module('ui.bootstrap.timepicker').run(function() {!angular.$$csp().noInlineStyle && !angular.$$uibTimepickerCss && angular.element(document).find('head').prepend('<style type="text/css">.uib-time input{width:50px;}</style>'); angular.$$uibTimepickerCss = true; });
 angular.module('ui.bootstrap.typeahead').run(function() {!angular.$$csp().noInlineStyle && !angular.$$uibTypeaheadCss && angular.element(document).find('head').prepend('<style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style>'); angular.$$uibTypeaheadCss = true; });
-angular.module('app', ['ui.router', 'ui.bootstrap', 'ngMap']);
+angular.module('app', ['ui.router', 'ui.bootstrap', 'ngMap']).config(function($sceProvider) {
+
+  $sceProvider.enabled(false);
+});
 
 angular.module('app')
     .constant('AccessLevels', {
@@ -57855,7 +57858,7 @@ angular.module('app')
     });
 
 angular.module('app')
-    .controller('MainController', function($scope, $http, NgMap) {
+    .controller('MainController', function($scope, $http, NgMap, $sce) {
         /* He$re is your main controller */
 
 
@@ -57873,7 +57876,7 @@ angular.module('app')
             console.log(lngsw);
 
             $scope.listpoint = [];
-            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location`).then(function(res) {
+            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse`).then(function(res) {
                 $scope.listpoint = res.data.result.webcams;
                 console.log($scope.listpoint[0]);
 
@@ -57882,13 +57885,14 @@ angular.module('app')
             $scope.affichage = function(event, p) {
                 console.log(p);
                 $scope.info = p;
+                $scope.mapUrl = $sce.trustAsResourceUrl('http://api.lookr.com/embed/timelapse/' +p.id +'/day');
             };
         });
 
     });
 // https://webcamstravel.p.mashape.com/webcams/map/63.083,28.011,-37.833,39.861,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK
-// https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
-// https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location
+// https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
+// https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
 
 angular.module('app')
     .controller('NavbarController', function($scope, Auth, CurrentUser) {
@@ -57998,21 +58002,27 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
-    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\" on-dragend=\"console.log('coucou')\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\">\n" +
     "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
     "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
     "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
-    "\n" +
     "          </marker>\n" +
     "\n" +
-    "\n" +
     "    </ng-map>\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
     "<div>\n" +
     "<p>{{info.location.city}}</p>\n" +
-    "<p><iframe>{{info.url.edit}}</frame></p>\n" +
-    "</div>\n"
+    "<!-- <p><a name=\"lkr-timelapse-player\" data-id=\"{{info.id}}\" data-play=\"lifetime\" href=\"//lookr.com/{{info.id}}\" target=\"_blank\">Simplon Hospiz, Hospiz &rsaquo; North: Simplon Pass</a>\n" +
+    "   <script async type=\"text/javascript\" src=\"http://api.lookr.com/embed/script/timelapse.js\"></script> -->\n" +
+    "   <!-- <iframe width=\"100%\" name=\"lkr-timelapse-player-iframe\" frameborder=\"0\" allowfullscreen=\"true\" src=\"//api.lookr.com/embed/timelapse/{{info.id}}/lifetime?autoresize=1\" style=\"border: none;\" height=\"423\"></iframe> -->\n" +
+    "   <iframe ng-src=\"{{mapUrl}}\" width=\"100%\" height=\"\" frameborder=\"0\"></iframe>\n" +
+    "\n" +
+    "  <!-- <iframe src=\"https://www.lookr.com/lookout/1484224733#action-play-day\" data-auto-height=\"false\" width=\"480\" height=\"640\" frameborder=\"0\"></iframe> -->\n" +
+    "\n" +
+    "</div>\n" +
+    "<!-- 1385551757 -->\n"
   );
 
   $templateCache.put("anon/login.html",

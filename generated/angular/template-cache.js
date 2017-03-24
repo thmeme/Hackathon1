@@ -4,21 +4,27 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "\n" +
     "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
-    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\" on-dragend=\"console.log('coucou')\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\">\n" +
     "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
     "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
     "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
-    "\n" +
     "          </marker>\n" +
     "\n" +
-    "\n" +
     "    </ng-map>\n" +
+    "\n" +
     "</div>\n" +
     "\n" +
     "<div>\n" +
     "<p>{{info.location.city}}</p>\n" +
-    "<p><iframe>{{info.url.edit}}</frame></p>\n" +
-    "</div>\n"
+    "<!-- <p><a name=\"lkr-timelapse-player\" data-id=\"{{info.id}}\" data-play=\"lifetime\" href=\"//lookr.com/{{info.id}}\" target=\"_blank\">Simplon Hospiz, Hospiz &rsaquo; North: Simplon Pass</a>\n" +
+    "   <script async type=\"text/javascript\" src=\"http://api.lookr.com/embed/script/timelapse.js\"></script> -->\n" +
+    "   <!-- <iframe width=\"100%\" name=\"lkr-timelapse-player-iframe\" frameborder=\"0\" allowfullscreen=\"true\" src=\"//api.lookr.com/embed/timelapse/{{info.id}}/lifetime?autoresize=1\" style=\"border: none;\" height=\"423\"></iframe> -->\n" +
+    "   <iframe ng-src=\"{{mapUrl}}\" width=\"100%\" height=\"\" frameborder=\"0\"></iframe>\n" +
+    "\n" +
+    "  <!-- <iframe src=\"https://www.lookr.com/lookout/1484224733#action-play-day\" data-auto-height=\"false\" width=\"480\" height=\"640\" frameborder=\"0\"></iframe> -->\n" +
+    "\n" +
+    "</div>\n" +
+    "<!-- 1385551757 -->\n"
   );
 
   $templateCache.put("anon/login.html",
