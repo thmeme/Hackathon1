@@ -55,15 +55,15 @@
 </header>
 
 <!-- End header-background -->
-<div class="container-hero2" id="scroll">
+<div class="container container-hero2" id="scroll">
     <div class="row top-menu">
         <div class="col-lg-5 col-lg-offset-1">
-            <style>
+            <!-- /*<style>
                 #map {
                     height: 400px;
                     width: 100%;
                 }
-            </style>
+            </style>*/ -->
             <h3>Choisissez votre destination</h3>
             <div class="row">
                 <div class="col-lg-12">
@@ -78,48 +78,27 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
-            <div id="map"></div>
-            <script>
-                function initMap() {
-                    var uluru = {
-                        lat: -25.363,
-                        lng: 131.044
-                    };
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 4,
-                        center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                        position: uluru,
-                        map: map
-                    });
-                }
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap">
-            </script>
+            <div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY">
+                <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style="height: 90%; width: 100%">
+                    <marker ng-repeat="p in listpoint track by $index" id="custom-marker-{{p.id}}" on-click="affichage(p)" position="[{{p.location.latitude}}, {{p.location.longitude}}]">
+                    </marker>
+
+                </ng-map>
+
+            </div>
+
+
         </div>
-        <div class="col-lg-5">
-            <h3>Profitez de la vue !</h3></div>
+        <div class="col-lg-5 city">
+            <h2>{{info.location.city}}</h2>
+            <img class="imgcity" ng-src="{{mapimg}}" alt="">
+
+        </div>
+
     </div>
-</div>
-<div map-lazy-load="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY">
-    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style="height: 90%; width: 70%">
-      <marker ng-repeat="p in listpoint track by $index"
-            id="custom-marker-{{p.id}}" on-click="affichage(p)"
-            position="[{{p.location.latitude}}, {{p.location.longitude}}]">
-          </marker>
 
-    </ng-map>
+    <div>
+        <iframe class="videocity" ng-src="{{mapUrl}}" width="400px" height="280px" frameborder="0"></iframe>
 
-</div>
 
-<div>
-<p>{{info.location.city}}</p>
-<!-- <p><a name="lkr-timelapse-player" data-id="{{info.id}}" data-play="lifetime" href="//lookr.com/{{info.id}}" target="_blank">Simplon Hospiz, Hospiz &rsaquo; North: Simplon Pass</a>
-   <script async type="text/javascript" src="http://api.lookr.com/embed/script/timelapse.js"></script> -->
-   <!-- <iframe width="100%" name="lkr-timelapse-player-iframe" frameborder="0" allowfullscreen="true" src="//api.lookr.com/embed/timelapse/{{info.id}}/lifetime?autoresize=1" style="border: none;" height="423"></iframe> -->
-   <iframe ng-src="{{mapUrl}}" width="100%" height="" frameborder="0"></iframe>
-
-  <!-- <iframe src="https://www.lookr.com/lookout/1484224733#action-play-day" data-auto-height="false" width="480" height="640" frameborder="0"></iframe> -->
-
-</div>
+    </div>

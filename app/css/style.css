@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-display: none;
+    display: none;
 }
 
 .container-hero {
@@ -31,19 +31,19 @@ header {
 }
 
 @media screen and (max-width: 991px) {
-  .logo_font {
-    font-family: Altair;
-    font-style: Italic;
-    font-size: 18px;
-  }
+    .logo_font {
+        font-family: Altair;
+        font-style: Italic;
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 1199px) {
-  .logo_font {
-    font-family: Altair;
-    font-style: Italic;
-    font-size: 18px;
-  }
+    .logo_font {
+        font-family: Altair;
+        font-style: Italic;
+        font-size: 18px;
+    }
 }
 
 nav#menu {
@@ -61,30 +61,50 @@ nav#menu.shrink {
 }
 
 h1 {
-  font-family: Altair;
-  font-style: Italic;
-  font-size: 6em;
-  display: inline;
-  vertical-align: middle;
-  text-shadow: 2px 2px #5F5F5F;
+    font-family: Altair;
+    font-style: Italic;
+    font-size: 6em;
+    display: inline;
+    vertical-align: middle;
+    text-shadow: 2px 2px #5F5F5F;
 }
 
+h2 {
+    font-family: Altair;
+    font-style: Italic;
+    font-size: 2em;
+    display: inline;
+    vertical-align: middle;
+    text-shadow: 2px 2px #5F5F5F;
+    padding-top: 10px;
+}
+
+.city {
+    margin-top: 16px;
+}
+
+.imgcity {
+    margin-top: 10px;
+}
+.videocity {
+  margin-top: 20px;
+}
 .menu-down {
-  padding-top: 40vh;
-  font-size: 40px;
+    padding-top: 40vh;
+    font-size: 40px;
 }
 
 .menu-down-link a {
-text-decoration: none;
-color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .input-field {
-  padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .footer {
-  padding-top: 30px;
+    padding-top: 30px;
 }
 
 .container-hero2 {
