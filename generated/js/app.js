@@ -57895,6 +57895,43 @@ angular.module('app')
 // https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
 
 angular.module('app')
+    .controller('MainController', function($scope, $http, NgMap, $sce) {
+        /* He$re is your main controller */
+
+
+        var url = 'https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse';
+        NgMap.getMap().then(function(map) {
+            console.log(map.getBounds());
+            var info = map.getBounds();
+            var latne = (info.f.b).toFixed(3);
+            var lngne = (info.f.f).toFixed(3);
+            var latsw = (info.b.b).toFixed(3);
+            var lngsw = (info.b.f).toFixed(3);
+            console.log(latne);
+            console.log(lngne);
+            console.log(latsw);
+            console.log(lngsw);
+
+            $scope.listpoint = [];
+            $http.get(`https://webcamstravel.p.mashape.com/webcams/map/${latne},${lngne},${latsw},${lngsw},4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse`).then(function(res) {
+                $scope.listpoint = res.data.result.webcams;
+                console.log($scope.listpoint[0]);
+
+            });
+
+            $scope.affichage = function(event, p) {
+                console.log(p);
+                $scope.info = p;
+                $scope.mapUrl = $sce.trustAsResourceUrl('http://api.lookr.com/embed/timelapse/' +p.id +'/day');
+            };
+        });
+
+    });
+// https://webcamstravel.p.mashape.com/webcams/map/63.083,28.011,-37.833,39.861,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK
+// https://webcamstravel.p.mashape.com/webcams/map/63.084,28.012,-36.251,38.280,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
+// https://webcamstravel.p.mashape.com/webcams/map/latne,lngne,latsw,lngsw,4?mashape-key=I5UFKNOdmpmshyUvG2eKchz6KJcTp1Dk9RPjsnbG7jZDqxpvFK&show=webcams:map,url,image,location,timelapse
+
+angular.module('app')
     .controller('NavbarController', function($scope, Auth, CurrentUser) {
         $scope.isCollapsed = true;
         $scope.auth = Auth;
@@ -57999,6 +58036,33 @@ angular.module('app')
 angular.module("app").run(["$templateCache", function($templateCache) {
 
   $templateCache.put("anon/home.html",
+    "\n" +
+    "\n" +
+    "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
+    "    <ng-map id='travelmap' center='[48.4713, 1.0143]' zoom='3' style=\"height: 90%; width: 70%\">\n" +
+    "      <marker ng-repeat=\"p in listpoint track by $index\"\n" +
+    "            id=\"custom-marker-{{p.id}}\" on-click=\"affichage(p)\"\n" +
+    "            position=\"[{{p.location.latitude}}, {{p.location.longitude}}]\">\n" +
+    "          </marker>\n" +
+    "\n" +
+    "    </ng-map>\n" +
+    "\n" +
+    "</div>\n" +
+    "\n" +
+    "<div>\n" +
+    "<p>{{info.location.city}}</p>\n" +
+    "<!-- <p><a name=\"lkr-timelapse-player\" data-id=\"{{info.id}}\" data-play=\"lifetime\" href=\"//lookr.com/{{info.id}}\" target=\"_blank\">Simplon Hospiz, Hospiz &rsaquo; North: Simplon Pass</a>\n" +
+    "   <script async type=\"text/javascript\" src=\"http://api.lookr.com/embed/script/timelapse.js\"></script> -->\n" +
+    "   <!-- <iframe width=\"100%\" name=\"lkr-timelapse-player-iframe\" frameborder=\"0\" allowfullscreen=\"true\" src=\"//api.lookr.com/embed/timelapse/{{info.id}}/lifetime?autoresize=1\" style=\"border: none;\" height=\"423\"></iframe> -->\n" +
+    "   <iframe ng-src=\"{{mapUrl}}\" width=\"100%\" height=\"\" frameborder=\"0\"></iframe>\n" +
+    "\n" +
+    "  <!-- <iframe src=\"https://www.lookr.com/lookout/1484224733#action-play-day\" data-auto-height=\"false\" width=\"480\" height=\"640\" frameborder=\"0\"></iframe> -->\n" +
+    "\n" +
+    "</div>\n" +
+    "<!-- 1385551757 -->\n"
+  );
+
+  $templateCache.put("anon/home2.html",
     "\n" +
     "\n" +
     "<div map-lazy-load=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY\">\n" +
