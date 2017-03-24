@@ -13,7 +13,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
     "          <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\" style=\"color:#D70F64\"></span>\n" +
     "        </button>\n" +
-    "                <a class=\"navbar-brand logo_navbar\" href=\"\"><img class=\"logo_navbar\" src=\"img/logo_nourristoi.png\" alt=\"\"></a>\n" +
+    "                <!-- <a class=\"navbar-brand logo_navbar\" href=\"\"><img class=\"logo_navbar\" src=\"img/logo_nourristoi.png\" alt=\"\"></a> -->\n" +
     "            </div>\n" +
     "\n" +
     "            <!-- Collect the nav links, forms, and other content for toggling -->\n" +
@@ -46,74 +46,69 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "        <!-- /.container -->\n" +
     "    </nav>\n" +
     "    <header>\n" +
-    "      <div class=\"row top-menu\">\n" +
-    "        <div class=\"col-lg-8 col-md-offset-2\"><img class=\"logo animated flip\" src=\"../img/logo2.png\" alt=\"\"><h1>Webcamolidays</h1></div>\n" +
-    "      </div>\n" +
+    "        <div class=\"row top-menu\">\n" +
+    "            <div class=\"col-lg-8 col-md-offset-2\"><img class=\"logo animated flip\" src=\"../img/logo2.png\" alt=\"\">\n" +
+    "                <h1>Webcamolidays</h1></div>\n" +
+    "        </div>\n" +
     "\n" +
-    "      <div class=\"row top-menu\">\n" +
-    "        <div class=\"col-lg-8 col-md-offset-2\"><span class=\"glyphicon glyphicon-menu-down chevron animated infinite bounce\" aria-hidden=\"true\"></span></div>\n" +
-    "      </div>\n" +
-    "      <div class=\"row top-menu\">\n" +
-    "        <div class=\"col-lg-8 col-md-offset-2\"><p>Partir en vacances</p></div>\n" +
-    "      </div>\n" +
+    "        <div class=\"row top-menu menu-down-link\">\n" +
+    "            <div class=\"col-lg-8 col-md-offset-2\"><a href=\"http://localhost:8000/#!/#scroll\"><span class=\"glyphicon glyphicon-menu-down menu-down animated infinite bounce\" aria-hidden=\"true\"></span></a></div>\n" +
+    "        </div>\n" +
     "</div>\n" +
+    "</header>\n" +
     "\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
-    "<section>test</section>\n" +
     "<!-- End header-background -->\n" +
-    "</header>\n"
+    "<div class=\"container-hero2\">\n" +
+    "<div class=\"row top-menu\">\n" +
+    "    <div class=\"col-lg-5 col-lg-offset-1\">\n" +
+    "        <style>\n" +
+    "            #map {\n" +
+    "                height: 400px;\n" +
+    "                width: 100%;\n" +
+    "            }\n" +
+    "        </style>\n" +
+    "        <h3 id=\"scroll\">Choisissez votre destination</h3>\n" +
+    "        <div class=\"row\">\n" +
+    "            <div class=\"col-lg-12\">\n" +
+    "                <div class=\"input-group input-field\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" placeholder=\"Je décide de partir à...\">\n" +
+    "                    <span class=\"input-group-btn\">\n" +
+    "          <button class=\"btn btn-default\" type=\"button\">Go!</button>\n" +
+    "        </span>\n" +
+    "                </div>\n" +
+    "                <!-- /input-group -->\n" +
+    "            </div>\n" +
+    "            <!-- /.col-lg-6 -->\n" +
+    "        </div>\n" +
+    "        <!-- /.row -->\n" +
+    "        <div id=\"map\"></div>\n" +
+    "        <script>\n" +
+    "            function initMap() {\n" +
+    "                var uluru = {\n" +
+    "                    lat: -25.363,\n" +
+    "                    lng: 131.044\n" +
+    "                };\n" +
+    "                var map = new google.maps.Map(document.getElementById('map'), {\n" +
+    "                    zoom: 4,\n" +
+    "                    center: uluru\n" +
+    "                });\n" +
+    "                var marker = new google.maps.Marker({\n" +
+    "                    position: uluru,\n" +
+    "                    map: map\n" +
+    "                });\n" +
+    "            }\n" +
+    "        </script>\n" +
+    "        <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap\">\n" +
+    "        </script>\n" +
+    "    </div>\n" +
+    "    <div class=\"col-lg-5\">\n" +
+    "        <h3>Profitez de la vue !</h3></div>\n" +
+    "</div></div>\n" +
+    "<div class=\"row top-menu footer\">\n" +
+    "    <div class=\"col-lg-5 col-lg-offset-1\">\n" +
+    "      <p>bla</p>\n" +
+    "    </div>\n" +
+    "  </div>\n"
   );
 
   $templateCache.put("anon/login.html",

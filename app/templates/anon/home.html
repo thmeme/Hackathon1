@@ -10,7 +10,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#D70F64"></span>
         </button>
-                <a class="navbar-brand logo_navbar" href=""><img class="logo_navbar" src="img/logo_nourristoi.png" alt=""></a>
+                <!-- <a class="navbar-brand logo_navbar" href=""><img class="logo_navbar" src="img/logo_nourristoi.png" alt=""></a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,71 +43,66 @@
         <!-- /.container -->
     </nav>
     <header>
-      <div class="row top-menu">
-        <div class="col-lg-8 col-md-offset-2"><img class="logo animated flip" src="../img/logo2.png" alt=""><h1>Webcamolidays</h1></div>
-      </div>
+        <div class="row top-menu">
+            <div class="col-lg-8 col-md-offset-2"><img class="logo animated flip" src="../img/logo2.png" alt="">
+                <h1>Webcamolidays</h1></div>
+        </div>
 
-      <div class="row top-menu">
-        <div class="col-lg-8 col-md-offset-2"><span class="glyphicon glyphicon-menu-down chevron animated infinite bounce" aria-hidden="true"></span></div>
-      </div>
-      <div class="row top-menu">
-        <div class="col-lg-8 col-md-offset-2"><p>Partir en vacances</p></div>
-      </div>
+        <div class="row top-menu menu-down-link">
+            <div class="col-lg-8 col-md-offset-2"><a href="http://localhost:8000/#!/#scroll"><span class="glyphicon glyphicon-menu-down menu-down animated infinite bounce" aria-hidden="true"></span></a></div>
+        </div>
 </div>
-
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<section>test</section>
-<!-- End header-background -->
 </header>
+
+<!-- End header-background -->
+<div class="container-hero2">
+<div class="row top-menu">
+    <div class="col-lg-5 col-lg-offset-1">
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+        <h3 id="scroll">Choisissez votre destination</h3>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group input-field">
+                    <input type="text" class="form-control" placeholder="Je décide de partir à...">
+                    <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var uluru = {
+                    lat: -25.363,
+                    lng: 131.044
+                };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhq8jk58jNGy9rYP4LDkkPcgAOmsIzdqY&callback=initMap">
+        </script>
+    </div>
+    <div class="col-lg-5">
+        <h3>Profitez de la vue !</h3></div>
+</div></div>
+<div class="row top-menu footer">
+    <div class="col-lg-5 col-lg-offset-1">
+      <p>bla</p>
+    </div>
+  </div>
