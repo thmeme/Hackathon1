@@ -27,6 +27,7 @@ angular.module('app')
                 console.log(p);
                 $scope.info = p;
                 $scope.mapUrl = $sce.trustAsResourceUrl('http://api.lookr.com/embed/timelapse/' +p.id +'/day');
+                $scope.mapimg = $sce.trustAsResourceUrl('https://images.webcams.travel/daylight/preview/' +p.id+'.jpg')
             };
         });
 
